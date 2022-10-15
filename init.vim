@@ -284,6 +284,7 @@ set listchars=tab:▸\ ,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
 set list
 set virtualedit=all
+set clipboard=exclude:.*
 "set noek
 "set rulerformat=%55(%{strftime('%a\ %b\ %e\ %I:%M\ %p')}\ %5l,%-6(%c%V%)\ %P%)
 "set switchbuf=usetab
@@ -699,6 +700,9 @@ noremap ,j :Leaderf! jumps<CR>
 noremap ,n :Leaderf function<CR>
 noremap ,q :Leaderf quickfix<CR>
 
+vmap    <C-S-c> : w !clip.exe <CR><CR>
+nmap    <C-S-c> : w !clip.exe <CR><CR>
+"nmap    ,c : w !clip.exe <CR><CR>
 noremap ,i :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s", expand("<cword>"))<CR><CR>
 noremap ,a :<C-U><C-R>=printf("Leaderf! rg -e %s", expand("<cword>"))<CR><CR>
 xnoremap ,i :<C-U><C-R>=printf("Leaderf! rg --current-buffer -F -e %s", leaderf#Rg#visual())<CR><CR>
